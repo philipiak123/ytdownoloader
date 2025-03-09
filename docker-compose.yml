@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: my-server
+    ports:
+      - "3001:3001"  # Mapowanie portu 3001 z kontenera na port 3001 na hoście
+    volumes:
+      - .:/usr/src/app  # Mapowanie katalogu roboczego
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
